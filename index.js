@@ -3,6 +3,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { StripeProvider } from 'react-stripe-elements';
+
+import MyStoreCheckout from './MyStoreCheckout';
+
+const App = () => {
+  return (
+    <StripeProvider apiKey="pk_test_12345">
+      <MyStoreCheckout />
+    </StripeProvider>
+  );
+};
 
 var cities = [
   'Warsaw',
@@ -72,11 +83,13 @@ var state = {};
 function setState(changes) {
   Object.assign(state, changes);
 
+  const props = Object.assign({}, state, {
+    value: state.newSearch,
+    onChange: updateSearch,
+  });
+
   ReactDOM.render(
-    CitiesForm(Object.assign({}, state, {
-      value: state.newSearch,
-      onChange: updateSearch,
-    })),
+    <div><App /><CitiesForm {...props} /> </div>,
     document.getElementById('app')
   );
 }
