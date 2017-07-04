@@ -9,7 +9,7 @@ import MyStoreCheckout from './MyStoreCheckout';
 
 const App = () => {
   return (
-    <StripeProvider apiKey="pk_test_12345">
+    <StripeProvider apiKey={process.env.STRIPE_API_KEY}>
       <MyStoreCheckout />
     </StripeProvider>
   );
