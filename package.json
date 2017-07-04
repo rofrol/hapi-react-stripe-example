@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "hapi": "^16.4.3"
+    "hapi": "^16.4.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-stripe-elements": "0.0.2"
   },
   "devDependencies": {},
   "scripts": {
